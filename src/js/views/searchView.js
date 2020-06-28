@@ -43,7 +43,7 @@ const renderRecipe = recipe => {
     elements.searchResList.insertAdjacentHTML('beforeend', markup);
 };
 
-// types: 'prev' or 'next'
+// types: 'prev' or 'next' new comment
 const createButton = (page, type) => `
     <button class="btn-inline results__btn--prev">
         <svg class="search__icon">
