@@ -34,8 +34,8 @@ export default class Recipe {
     }
 
     parseIngredients() {
-        const unitsLong = ['tablespoons', 'tablespoon', 'ounce', 'ounces', 'teaspoons','teaspoons', 'cups', 'pounds'];
-        const unitsShort = ['tbsp','tbsp', 'oz', 'oz', 'tsp', 'tsp', 'cup', 'pound'];
+        const unitsLong = ['tablespoons', 'tablespoon', 'ounce', 'ounces', 'ozs', 'teaspoons','teaspoons','teaspoon', 'cups', 'pounds'];
+        const unitsShort = ['tbsp','tbsp', 'oz', 'oz', 'oz', 'tsp', 'tsp', 'tsp', 'cup', 'pound'];
         const units = [...unitsShort, 'kg', 'g'];
 
         const newIngredients = this.ingredients.map(el => {

@@ -67,11 +67,9 @@ elements.searchResPages.addEventListener('click', e => {
 /** 
  * RECIPE CONTROLLER
  */
-
 const controlRecipe = async () => {
     // Get ID from url
     const id = window.location.hash.replace('#','');
-    console.log(id);
 
     if(id) {
         // Prepare UI for changes
@@ -117,7 +115,6 @@ const controlRecipe = async () => {
 
 // TESTING
  state.likes = new Likes();
- likesView.toggleLikeMenu(state.likes.getNumberLikes());
 
  const controlList= () => {
      // Create a new list IF there is non yet
@@ -162,9 +159,20 @@ const controlLike= () => {
         likesView.deleteLike(currentID);
     }
     likesView.toggleLikeMenu(state.likes.getNumberLikes());
-}
+};
 
+// Restore liked recipes on page load
+window.addEventListener('load', () => {
+    state.likes = new Likes();
+    // Restore likes
+    state.likes.readStorage();
 
+    // Toggle like menu button
+    likesView.toggleLikeMenu(state.likes.getNumberLikes());
+
+    // Render the existing likes
+    state.likes.likes.forEach(like => likesView.renderLike(like));
+});
 
  // Handle delete and update list item events
  elements.shopping.addEventListener('click', e => {
@@ -206,5 +214,3 @@ elements.recipe.addEventListener('click', e => {
         controlLike();
     }
 });
-
-window.l = new List();
